@@ -1,0 +1,10 @@
+Pro:
+- always clear what model version is used for a api build
+- faster development, as step for local maven publising is avoided
+- easier to define more layers of the project, e.g. api and model subproject for each scope of the api plus one general model abstraction
+- easier to control deployment according to test results (if model tests fail the build needs to be prevent from going live, which can not be done as easily with maven builds)
+
+Con:
+- easier to mix abstraction with implementation (not really)
+- models can not be ported easily (not really, maven build can be setup here as well)
+- work on different components all go to the some repo, which may lead to merging conflicts more often (if subprojects are split correctly, hardly any microservice should conflict with another, so merging conflicts are less likely, plus its actually the same problem in current approach)
